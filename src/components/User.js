@@ -7,7 +7,7 @@ function User() {
   const dispatch = useDispatch();
   const [u, setU] = useState([]);
   useEffect(() => {
-    setU(userData.users.map);
+    setU(userData.users);
   }, [userData]);
   return (
     <div>
@@ -22,13 +22,8 @@ function User() {
         fetch users
       </button>
       <br />
-      {u.map((user) => {
-        <ul>
-          <li key={user.id}>
-            {console.log(user.name)}
-            <h2>user.name</h2>
-          </li>
-        </ul>;
+      {u.map(function (d) {
+        return <li key={d.id}>{d.name}</li>;
       })}
     </div>
   );
