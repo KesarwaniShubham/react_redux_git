@@ -22,9 +22,19 @@ function User() {
         fetch users
       </button>
       <br />
-      {u.map(function (d) {
+      {console.log(userData)}
+      {userData.loading ? (
+        <h1>...loading</h1>
+      ) : userData.error ? (
+        <li>{userData.error}</li>
+      ) : (
+        u.map(function (d) {
+          return <li key={d.id}>{d.name}</li>;
+        })
+      )}
+      {/* {u.map(function (d) {
         return <li key={d.id}>{d.name}</li>;
-      })}
+      })} */}
     </div>
   );
 }
